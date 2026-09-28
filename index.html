@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1%</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#f5faf6;color:#18332a}
+
+header{background:#fff;position:fixed;width:100%;top:0;z-index:10;
+box-shadow:0 2px 10px #0001}
+
+nav{max-width:1100px;margin:auto;height:65px;display:flex;
+align-items:center;justify-content:space-between}
+
+.logo{font-size:25px;font-weight:bold;color:#16834a}
+nav ul{display:flex;list-style:none;gap:18px}
+nav a{text-decoration:none;color:#315047;font-weight:bold}
+nav a:hover{color:#25a85d}
+
+.hero{padding:120px 6% 70px;background:linear-gradient(135deg,#e7faec,#e6f5ff)}
+.hero-content{max-width:1100px;margin:auto;display:grid;
+grid-template-columns:1fr 1.3fr;gap:40px;align-items:center}
+
+.hero h1{font-size:65px;color:#17824a}
+.hero h1 span{color:#ff883b}
+.hero p{font-size:18px;line-height:1.6;margin:20px 0;color:#526b61}
+
+.btn{display:inline-block;padding:14px 20px;border-radius:12px;
+text-decoration:none;font-weight:bold;margin:5px;background:#35b86b;color:white}
+.btn:hover{transform:translateY(-2px)}
+.yellow{background:#ffc83d;color:#493900}
+.white{background:white;color:#17824a}
+
+.hero img{width:100%;border:7px solid white;border-radius:25px;
+box-shadow:0 10px 30px #0002}
+
+section{padding:80px 6%}
+section h2{text-align:center;font-size:42px;margin-bottom:15px;color:#17824a}
+
+.sub{text-align:center;max-width:700px;margin:0 auto 35px;
+color:#60756d;line-height:1.6}
+
+.historia{background:white}
+.historia-box{max-width:1000px;margin:auto;display:grid;
+grid-template-columns:1fr 1fr;gap:25px}
+
+.box{background:#effaf2;padding:30px;border-radius:22px}
+.box h3{font-size:25px;margin-bottom:12px}
+.box p{line-height:1.7;color:#5b7068}
+
+.personagem{display:grid;grid-template-columns:300px 1fr;max-width:950px;
+margin:auto;background:white;border-radius:25px;overflow:hidden;
+box-shadow:0 8px 25px #0001}
+
+.personagem-img{background:linear-gradient(#b9efd0,#a8ddff);
+display:flex;align-items:center;justify-content:center;height:350px}
+
+.personagem-img img{width:90%;height:100%;object-fit:contain}
+
+.personagem-info{padding:30px}
+.personagem-info p{line-height:1.6;color:#5b7068;margin:10px 0}
+
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{background:#e8f8ee;padding:9px 12px;border-radius:20px;
+color:#17824a;font-weight:bold}
+
+.cards{max-width:1100px;margin:auto;display:grid;
+grid-template-columns:repeat(4,1fr);gap:18px}
+
+.card{background:white;padding:25px;border-radius:20px;
+box-shadow:0 5px 20px #0001;text-align:center}
+
+.card:hover{transform:translateY(-5px)}
+.card .emoji{font-size:55px;margin-bottom:12px}
+.monstro-img{width:140px;height:140px;object-fit:contain;display:block;margin:0 auto 12px}
+.card h3{margin-bottom:8px}
+.card p{color:#60756d;line-height:1.5}
+
+.cenarios{background:#eef8f2}
+.cenario-img{font-size:65px;background:#c8efd5;padding:30px;
+border-radius:15px;margin-bottom:15px}
+
+.fases{grid-template-columns:repeat(2,1fr)}
+.fase-card{padding:0 0 25px;overflow:hidden}
+.fase-img{width:100%;height:230px;display:block;object-fit:cover}
+.fase-card h3,.fase-card p,.fase-card .btn{margin-left:25px;margin-right:25px}
+.fase-card h3{margin-top:15px}
+.fase-card p{margin-top:8px}
+.fase-numero{display:inline-block;margin:15px 25px 0;padding:7px 12px;border-radius:20px;background:#e8f8ee;color:#17824a;font-weight:bold;font-size:13px}
+@media(max-width:800px){.fases{grid-template-columns:1fr}}
+
+.card:nth-child(2) .cenario-img{background:#dce9ff}
+.card:nth-child(3) .cenario-img{background:#e8d9ff}
+.card:nth-child(4) .cenario-img{background:#ffe5a8}
+
+.como{background:#18332a;color:white}
+.como h2{color:#8ce6ad}
+.como .sub{color:#c5d9d1}
+
+.controles{display:flex;justify-content:center;gap:10px;margin-top:30px}
+.tecla{background:white;color:#18332a;padding:15px 20px;
+border-radius:10px;font-weight:bold}
+
+.objetivo{background:linear-gradient(135deg,#fff2c5,#e8fff0)}
+.objetivo-box{max-width:900px;margin:auto;background:white;padding:40px;
+border-radius:25px;text-align:center}
+
+.objetivo-box p{line-height:1.7;color:#60756d;margin:20px}
+
+.valores{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.valor{padding:12px 16px;background:#f0f8f2;border-radius:15px;
+font-weight:bold}
+
+.jogar{background:linear-gradient(135deg,#2998df,#35b86b);
+color:white;text-align:center}
+
+.jogar h2{color:white;font-size:48px}
+.jogar p{margin:15px}
+
+.download{background:white}
+.download-box{max-width:1000px;margin:auto;background:#effaf2;
+padding:35px;border-radius:25px;display:flex;
+justify-content:space-between;align-items:center;gap:20px}
+
+.download-box p{margin-top:10px;color:#60756d}
+
+.sobre{background:#edf8f1}
+.sobre-box{max-width:1000px;margin:auto;display:grid;
+grid-template-columns:1fr 1fr;gap:20px}
+
+footer{background:#10261f;color:white;padding:40px 6%}
+.footer{max-width:1100px;margin:auto;display:flex;
+justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+footer a{color:#dcece5;text-decoration:none;margin:5px}
+footer p{color:#b8ccc4;margin-top:10px}
+
+@media(max-width:800px){
+nav{padding:0 20px}
+nav ul{display:none}
+.hero-content,.historia-box,.personagem,.sobre-box{
+grid-template-columns:1fr}
+.hero h1{font-size:48px}
+.cards{grid-template-columns:repeat(2,1fr)}
+.download-box{flex-direction:column;align-items:flex-start}
+}
+
+@media(max-width:500px){
+.cards{grid-template-columns:1fr}
+.hero{padding-top:100px}
+section{padding:60px 5%}
+.hero h1{font-size:42px}
+section h2{font-size:34px}
+.personagem-img{height:280px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">1%</div>
+
+<ul>
+<li><a href="#historia">História</a></li>
+<li><a href="#personagem">Personagem</a></li>
+<li><a href="#monstros">Monstros</a></li>
+<li><a href="#cenarios">Fases</a></li>
+<li><a href="#como">Como jogar</a></li>
+<li><a href="#jogar">Jogar</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+
+<div>
+<p>🎮 JOGO 2D EDUCATIVO</p>
+
+<h1>1<span>%</span></h1>
+
+<p>
+Uma aventura sobre alimentação equilibrada e novos hábitos.
+</p>
+
+<a class="btn" href="#jogar">▶ Jogar online</a>
+<a class="btn yellow" href="#download">↓ Baixar</a>
+<a class="btn white" href="#historia">Conhecer</a>
+</div>
+
+<div>
+<img src="1_porcento_capa.png" alt="Gameplay do jogo 1%">
+</div>
+
+</div>
+</section>
+
+<section class="historia" id="historia">
+
+<h2>A História</h2>
+
+<p class="sub">
+Uma jornada divertida para descobrir novos hábitos e superar desafios.
+</p>
+
+<div class="historia-box">
+
+<div class="box">
+<h3>🌱 O começo</h3>
+<p>
+A Bruna decide mudar alguns hábitos do seu dia a dia
+e começa uma nova aventura, correndo atras dos novos habitos.
+</p>
+</div>
+
+<div class="box">
+<h3>🎯 A missão</h3>
+<p>
+Ela precisa atravessar diferentes cenários, coletar itens
+e superar obstáculos durante sua jornada.
+</p>
+</div>
+
+</div>
+</section>
+
+<section id="personagem">
+
+<h2>Personagem Principal</h2>
+
+<p class="sub">Conheça a protagonista da aventura.</p>
+
+<div class="personagem">
+
+<div class="personagem-img">
+<img src="prsng_principal.png" alt="Protagonista">
+</div>
+
+<div class="personagem-info">
+
+<h3>A Protagonista</h3>
+
+<p>
+Uma mulher que decide buscar uma rotina mais equilibrada
+através de alimentação, hidratação e movimento.
+</p>
+
+<p>
+<b>Objetivo:</b> completar as fases e superar os desafios.
+</p>
+
+<p>
+<b>Habilidades:</b> correr, pular, desviar e coletar itens.
+</p>
+
+<div class="tags">
+<span class="tag">💧 Água</span>
+<span class="tag">🍎 Frutas</span>
+<span class="tag">🥗 Alimentos</span>
+<span class="tag">🏃 Movimento</span>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="monstros">
+
+<h2>Os Monstros</h2>
+
+<p class="sub">
+Desafios representados de forma divertida e cartunesca.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<img class="monstro-img" src="assets/coca.png" alt="Monstro refrigerante">
+<h3>Refrigerante</h3>
+<p>Um inimigo rápido que tenta atrapalhar o caminho.</p>
+</div>
+
+<div class="card">
+<img class="monstro-img" src="assets/hamburguer.png" alt="Monstro hambúrguer">
+<h3>Hambúrguer</h3>
+<p>Um obstáculo grande encontrado em algumas fases.</p>
+</div>
+
+<div class="card">
+<img class="monstro-img" src="assets/batata.png" alt="Monstro batata frita">
+<h3>Batata frita</h3>
+<p>Um inimigo pequeno e rápido.</p>
+</div>
+
+<div class="card">
+<img class="monstro-img" src="assets/biriri.png" alt="Monstro Biriri">
+<h3>Biriri</h3>
+<p>Um desafio especial que aparece em determinadas áreas.</p>
+</div>
+
+</div>
+</section>
+
+<section class="cenarios" id="cenarios">
+
+<h2>Fases</h2>
+
+<p class="sub">
+Explore os diferentes cenários da jornada da Bruna.
+</p>
+
+<div class="cards fases">
+
+<div class="card fase-card">
+<img class="fase-img" src="assets/fase1_quarto.png" alt="Fase 1 - Quarto">
+<div class="fase-numero">FASE 1</div>
+<h3>Quarto</h3>
+<p>O começo da jornada, dentro de casa, onde a personagem decide iniciar pequenas mudanças na rotina.</p>
+<br>
+<a class="btn" href="#">Ver fase</a>
+</div>
+
+<div class="card fase-card">
+<img class="fase-img" src="assets/fase2_cidade.png" alt="Fase 2 - Cidade">
+<div class="fase-numero">FASE 2</div>
+<h3>Cidade</h3>
+<p>Uma cidade movimentada, com ruas, ônibus, comércio e vários desafios pelo caminho.</p>
+<br>
+<a class="btn" href="#">Ver fase</a>
+</div>
+
+<div class="card fase-card">
+<img class="fase-img" src="assets/fase3_academia.png" alt="Fase 3 - Academia">
+<div class="fase-numero">FASE 3</div>
+<h3>Academia</h3>
+<p>Um ambiente voltado para movimento e atividade física, cheio de novos obstáculos.</p>
+<br>
+<a class="btn" href="#">Ver fase</a>
+</div>
+
+<div class="card fase-card">
+<img class="fase-img" src="assets/fase4_escritorio.png" alt="Fase 4 - Escritório">
+<div class="fase-numero">FASE 4</div>
+<h3>Escritório</h3>
+<p>Um cenário de trabalho onde a personagem precisa manter o equilíbrio durante a rotina.</p>
+<br>
+<a class="btn" href="#">Ver fase</a>
+</div>
+
+</div>
+</section>
+
+<section class="como" id="como">
+
+<h2>Como Jogar</h2>
+
+<p class="sub">
+Aprenda rapidamente como controlar a personagem.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<div class="emoji">🎮</div>
+<h3>Movimente</h3>
+<p>Ande, pule e derrote os monstros.</p>
+</div>
+
+<div class="card">
+<div class="emoji">💧</div>
+<h3>Colete</h3>
+<p>Pegue água, frutas e outros itens.</p>
+</div>
+
+<div class="card">
+<div class="emoji">👾</div>
+<h3>Evite</h3>
+<p>Cuidado com inimigos e obstáculos.</p>
+</div>
+
+<div class="card">
+<div class="emoji">🏆</div>
+<h3>Avance</h3>
+<p>Complete a fase e continue a jornada.</p>
+</div>
+
+</div>
+
+<div class="controles">
+<span class="tecla">←</span>
+<span class="tecla">→</span>
+<span class="tecla">↑</span>
+<span class="tecla">ESPAÇO</span>
+</div>
+
+</section>
+
+<section id="manual">
+
+<h2>Manual</h2>
+
+<p class="sub">
+Informações importantes para jogar.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<div class="emoji">🎮</div>
+<h3>Controles</h3>
+<p>Use as teclas para andar e pular.</p>
+</div>
+
+<div class="card">
+<div class="emoji">❤️</div>
+<h3>Vida</h3>
+<p>Evite obstáculos para continuar.</p>
+</div>
+
+<div class="card">
+<div class="emoji">💧</div>
+<h3>Hidratação</h3>
+<p>Encontre garrafas durante as fases.</p>
+</div>
+
+<div class="card">
+<div class="emoji">🍎</div>
+<h3>Coletáveis</h3>
+<p>Itens podem aumentar sua pontuação.</p>
+</div>
+
+<div class="card">
+<div class="emoji">👾</div>
+<h3>Inimigos</h3>
+<p>Cada monstro apresenta um desafio.</p>
+</div>
+
+<div class="card">
+<div class="emoji">🏃</div>
+<h3>Movimento</h3>
+<p>Algumas fases possuem desafios físicos.</p>
+</div>
+
+<div class="card">
+<div class="emoji">⭐</div>
+<h3>Pontuação</h3>
+<p>Complete objetivos para pontuar.</p>
+</div>
+
+<div class="card">
+<div class="emoji">🏆</div>
+<h3>Objetivo</h3>
+<p>Chegue ao final da fase.</p>
+</div>
+
+</div>
+</section>
+
+<section class="objetivo">
+
+<div class="objetivo-box">
+
+<h2>Objetivo do Jogo</h2>
+
+<p>
+Completar a jornada enfrentando desafios e aprendendo,
+de forma divertida, sobre hábitos que podem contribuir
+para uma rotina mais equilibrada.
+</p>
+
+<div class="valores">
+<span class="valor">💧 Hidratação</span>
+<span class="valor">🥗 Alimentação</span>
+<span class="valor">🏃 Movimento</span>
+<span class="valor">😴 Descanso</span>
+<span class="valor">⚖️ Equilíbrio</span>
+</div>
+
+</div>
+</section>
+
+<section class="jogar" id="jogar">
+
+<h2>PRONTA PARA A JORNADA?</h2>
+
+<p>Entre no jogo e comece a aventura!</p>
+
+<a class="btn white" href="#">
+▶ JOGAR ONLINE
+</a>
+
+</section>
+
+<section class="download" id="download">
+
+<div class="download-box">
+
+<div>
+<h2>Baixe o jogo</h2>
+<p>Leve essa aventura com você.</p>
+</div>
+
+<div>
+<a class="btn" href="#">↓ Baixar para PC</a>
+<a class="btn white" href="#">🌐 Versão Web</a>
+</div>
+
+</div>
+</section>
+
+<section class="sobre">
+
+<div class="sobre-box">
+
+<div class="box">
+<h3>📚 Sobre o projeto</h3>
+
+<p>
+1% é um projeto educativo que utiliza a linguagem dos
+videogames para apresentar conceitos sobre alimentação
+equilibrada e atividade física.
+</p>
+</div>
+
+<div class="box">
+<h3>⚖️ Equilíbrio</h3>
+
+<p>
+A proposta é mostrar hábitos equilibrados de forma
+leve e divertida.
+</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+
+<div class="footer">
+
+<div>
+<div class="logo">1%</div>
+<p>Uma jornada de escolhas, desafios e novos hábitos.</p>
+</div>
+
+<div>
+<a href="#historia">História</a>
+<a href="#personagem">Personagem</a>
+<a href="#cenarios">Cenários</a>
+<a href="#como">Como jogar</a>
+<a href="#manual">Manual</a>
+<a href="#jogar">Jogar</a>
+<a href="#download">Download</a>
+</div>
+
+</div>
+
+</footer>
+
+<script>
+document.querySelectorAll('a[href="#"]').forEach(function(botao){
+botao.onclick=function(){
+alert("Coloque aqui o link ou arquivo do seu jogo.");
+};
+});
+</script>
+
+</body>
+</html>
